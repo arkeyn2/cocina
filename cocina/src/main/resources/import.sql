@@ -9,3 +9,10 @@ INSERT INTO public.usuario(apellido, email, nombre, nombre_usuario, password, ru
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (1, 1);
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (2, 3);
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (3, 2);
+
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('vejetariana','activo','Fajita');
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('blanco','activo','Arroz');
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('con carne','activo','Fetuchini');
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('asado','activo','Pollo');
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al plato','activo','Humita');
+INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al horno','activo','Pastel de papa');
