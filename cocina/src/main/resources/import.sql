@@ -16,3 +16,8 @@ INSERT INTO public.plato(detalle,estado,nombre)VALUES ('con carne','activo','Fet
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('asado','activo','Pollo');
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al plato','activo','Humita');
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al horno','activo','Pastel de papa');
+
+INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('grado1','activo','12-08-2024','arroz');
+INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('verdura','activo','12-08-2024','tomate');
+INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('pastas','activo','12-08-2024','tallarines');
+INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('blanco','activo','12-08-2024','pan');
