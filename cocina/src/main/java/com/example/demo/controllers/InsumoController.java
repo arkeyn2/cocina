@@ -18,107 +18,109 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.models.entity.Stock;
-import com.example.demo.models.services.IStockService;
+import com.example.demo.models.entity.Insumo;
+import com.example.demo.models.services.IInsumosService;
 
 @CrossOrigin(origins ={"http://loalhost:4200","*"})
 @RestController
 @RequestMapping("/api")
-public class StockResController {
-	
-	@Autowired
-	private IStockService stockser;
-	
-	@GetMapping("/stocks")
-	public List<Stock>index(){
-		return stockser.findAll();
-	}
+public class InsumoController {
 
-	@GetMapping("/stocks{id}")
+	@Autowired
+	private IInsumosService insumoService;
+	
+	@GetMapping("/insumos")
+	public List<Insumo>index(){
+		return insumoService.findAll();
+	}
+	
+	@GetMapping("/tragos{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
-		Stock stock = null;
+		Insumo insumos = null;
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			stock = stockser.findById(id);
+			insumos = insumoService.findById(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta a la base de datos");
 			response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 		
-		if (stock == null) {
-			response.put("mensaje", "El stock id:".concat(id.toString().concat(" no existe en la base de datos!")));
+		if (insumos == null) {
+			response.put("mensaje", "El tipo id:".concat(id.toString().concat(" no existe en la base de datos!")));
 		}
-		return new ResponseEntity<Stock>(stock, HttpStatus.OK);
+		return new ResponseEntity<Insumo>(insumos, HttpStatus.OK);
 	}
 	
-	@PostMapping("/stocks")
+	@PostMapping("/insumos")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> create (@RequestBody Stock stock){
+	public ResponseEntity<?> create (@RequestBody Insumo insumos){
 	
-		Stock stocknew =null;
+		Insumo insumosnew =null;
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			stocknew = stockser.save(stock);
+			insumosnew = insumoService.save(insumos);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El stock ha sido creado con exito!");
-		response.put("stock", stocknew);
+		response.put("mensaje", "El insumo ha sido creado con exito!");
+		response.put("insumos", insumosnew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/stocks/{id}")
+	@PostMapping("/insumos/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> update(@RequestBody Stock stock, @PathVariable Long id ){
+	public ResponseEntity<?> update(@RequestBody Insumo insumos, @PathVariable Long id ){
 	
-		Stock stockActual =stockser.findById(id);
+		Insumo insumosActual =insumoService.findById(id);
 		
-		Stock stockUpdate =null;
+		Insumo insumosUpdate =null;
 		
 		Map<String, Object> response = new HashMap<>();
 		
-		if (stock == null) {
-			response.put("mensaje", "El stock Id:" .concat(id.toString().concat(" no existe en la base de datos!")));
+		if (insumos == null) {
+			response.put("mensaje", "El insumos Id:" .concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		
 		}
 		try {
-			stockActual.setCantidad(stock.getCantidad());
-			stockActual.setStock_critico(stock.getStock_critico());
-			stockActual.setInsumos(stock.getInsumos());
-			stockActual.setEntrada(stock.getEntrada());
-			stockActual.setSalida(stock.getSalida());
-			stockActual.setStock_inicial(stock.getStock_inicial());
+			insumosUpdate.setNombre(insumos.getNombre());
+			insumosUpdate.setDescripcion(insumos.getDescripcion());
+			insumosUpdate.setEstado(insumos.getEstado());
+			insumosUpdate.setCodigo(insumos.getCodigo());
+			insumosUpdate.setDescripcion_umv(insumos.getDescripcion_umv());
+			insumosUpdate.setPrecio_unidad(insumos.getPrecio_unidad());
+			insumosUpdate.setTemperatura(insumos.getTemperatura());
+			insumosUpdate.setFecha_vencimiento(insumos.getFecha_vencimiento());
 			
-			stockUpdate = stockser.save(stockActual);
+			insumosUpdate = insumoService.save(insumosActual);
 		}catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar actualizado en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	
 		}
-		response.put("mensaje", "El stock ha sido actualizado con exito!");
-		response.put("stock", stockUpdate);
+		response.put("mensaje", "El insumo ha sido actualizado con exito!");
+		response.put("insumos", insumosUpdate);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/stocks/{id}")
+	@DeleteMapping("/insumos/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		Map<String, Object> response = new HashMap<>();
 		try {
-			stockser.delete(id);
+			insumoService.delete(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El stock eliminada con exito!");
+		response.put("mensaje", "El insumo eliminada con exito!");
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}

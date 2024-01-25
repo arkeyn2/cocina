@@ -19,9 +19,17 @@ public class Insumo implements Serializable {
 	private long id;
 
 	@Column(nullable = false)
+	private String codigo;
+	
 	private String nombre;
 
-	private String detalle;
+	private String descripcion;
+	
+	private String descripcion_umv;
+	
+	private String precio_unidad;
+	
+	private String temperatura;
 
 	private String estado;
 
@@ -43,14 +51,6 @@ public class Insumo implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(String detalle) {
-		this.detalle = detalle;
-	}
-
 	public String getEstado() {
 		return estado;
 	}
@@ -65,6 +65,46 @@ public class Insumo implements Serializable {
 
 	public void setFecha_vencimiento(Date fecha_vencimiento) {
 		this.fecha_vencimiento = fecha_vencimiento;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getDescripcion_umv() {
+		return descripcion_umv;
+	}
+
+	public void setDescripcion_umv(String descripcion_umv) {
+		this.descripcion_umv = descripcion_umv;
+	}
+
+	public String getPrecio_unidad() {
+		return precio_unidad;
+	}
+
+	public void setPrecio_unidad(String precio_unidad) {
+		this.precio_unidad = precio_unidad;
+	}
+
+	public String getTemperatura() {
+		return temperatura;
+	}
+
+	public void setTemperatura(String temperatura) {
+		this.temperatura = temperatura;
 	}
 
 	public static long getSerialversionuid() {

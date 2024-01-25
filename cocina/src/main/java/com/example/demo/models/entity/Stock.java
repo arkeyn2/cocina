@@ -21,10 +21,8 @@ public class Stock implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
 	private int cantidad;
 
-	@Column(nullable = false)
 	private int stock_inicial;
 	
 	private int entrada;
@@ -68,6 +66,30 @@ public class Stock implements Serializable {
 
 	public Insumo getInsumos() {
 		return insumos;
+	}
+
+	public int getStock_inicial() {
+		return stock_inicial;
+	}
+
+	public void setStock_inicial(int stock_inicial) {
+		this.stock_inicial = stock_inicial;
+	}
+
+	public int getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(int entrada) {
+		this.entrada = entrada;
+	}
+
+	public int getSalida() {
+		return salida;
+	}
+
+	public void setSalida(int salida) {
+		this.salida = salida;
 	}
 
 	public void setInsumos(Insumo insumos) {
