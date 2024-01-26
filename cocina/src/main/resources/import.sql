@@ -17,7 +17,17 @@ INSERT INTO public.plato(detalle,estado,nombre)VALUES ('asado','activo','Pollo')
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al plato','activo','Humita');
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al horno','activo','Pastel de papa');
 
-INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('grado1','activo','12-08-2024','arroz');
-INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('verdura','activo','12-08-2024','tomate');
-INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('pastas','activo','12-08-2024','tallarines');
-INSERT INTO public.insumo(detalle,estado,fecha_vencimiento,nombre)VALUES ('blanco','activo','12-08-2024','pan');
+INSERT INTO public.insumo(codigo,descripcion,estado,fecha_vencimiento,nombre)VALUES (123456,'grado1','activo','12-08-2024','arroz');
+INSERT INTO public.insumo(codigo,descripcion,,estado,fecha_vencimiento,nombre)VALUES (321456,'verdura','activo','12-08-2024','tomate');
+INSERT INTO public.insumo(codigo,descripcion,estado,fecha_vencimiento,nombre)VALUES (258963,'pastas','activo','12-08-2024','tallarines');
+INSERT INTO public.insumo(codigo,descripcion,estado,fecha_vencimiento,nombre)VALUES (78945,'blanco','activo','12-08-2024','pan');
+
+INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (1000,2,2,100,8,1);
+INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (2500,3,8,1200,9,2);
+INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (3000,6,2,1000,3,3);
+INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (50,6,8,10,8,4);
+
+INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('12-03-2023',100,26,1,1,1);
+INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('10-05-2024',100,47,1,1,1);
+INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('01-01-2024',100,1,1,1,1);
+INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('25-12-2024',100,39,1,1,1);
