@@ -34,7 +34,7 @@ public class StockResController {
 		return stockser.findAll();
 	}
 
-	@GetMapping("/stocks{id}")
+	@GetMapping("/stocks/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
 		Stock stock = null;

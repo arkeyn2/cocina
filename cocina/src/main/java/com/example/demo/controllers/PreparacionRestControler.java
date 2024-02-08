@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.models.entity.Plato;
 import com.example.demo.models.entity.Preparacion;
 import com.example.demo.models.services.IPreparacionService;
 
@@ -32,6 +33,26 @@ public class PreparacionRestControler {
 	@GetMapping("/preparaciones")
 	public List<Preparacion>index(){
 		return preservis.findAll();
+	}
+	
+	@GetMapping("/preparaciones/{id}")
+	public ResponseEntity<?> show(@PathVariable Long id){
+		
+		Preparacion prepa = null;
+		Map<String, Object> response = new HashMap<>();
+		
+		try {
+			prepa = preservis.findById(id);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta a la base de datos");
+			response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		
+		if (prepa == null) {
+			response.put("mensaje", "La preparacion id:".concat(id.toString().concat(" no existe en la base de datos!")));
+		}
+		return new ResponseEntity<Preparacion>(prepa, HttpStatus.OK);
 	}
 	
 	@PostMapping("/preparaciones")

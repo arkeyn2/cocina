@@ -34,7 +34,7 @@ public class TipoRestController {
 		return tipoService.findAll();
 	}
 	
-	@GetMapping("/tipos{id}")
+	@GetMapping("/tipos/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
 		Tipo tipos = null;

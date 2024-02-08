@@ -34,7 +34,7 @@ public class PlatoController {
 		return (List<Plato>) platoser.findAll();
 	}
 
-	@GetMapping("/platos{id}")
+	@GetMapping("/platos/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
 		Plato plato = null;
