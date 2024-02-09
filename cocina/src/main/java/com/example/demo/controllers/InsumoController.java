@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.entity.Insumo;
+import com.example.demo.models.entity.Usuario;
 import com.example.demo.models.services.IInsumosService;
 
 @CrossOrigin(origins ={"http://loalhost:4200","*"})
@@ -38,7 +40,7 @@ public class InsumoController {
 		return insumoService.findAll();
 	}
 	
-	@GetMapping("/tragos{id}")
+	@GetMapping("/insumos/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
 		Insumo insumos = null;
@@ -77,40 +79,40 @@ public class InsumoController {
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@PostMapping("/insumos/{id}")
+	@PutMapping("/insumos/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> update(@RequestBody Insumo insumos, @PathVariable Long id ){
-	
-		Insumo insumosActual =insumoService.findById(id);
-		
-		Insumo insumosUpdate =null;
-		
+	public ResponseEntity<?> update(@RequestBody Insumo insumo, @PathVariable Long id) {
+
+		Insumo insumoActual = insumoService.findById(id);
+
+		Insumo insumoUpdate = null;
+
 		Map<String, Object> response = new HashMap<>();
-		
-		if (insumos == null) {
-			response.put("mensaje", "El insumos Id:" .concat(id.toString().concat(" no existe en la base de datos!")));
+
+		if (insumo == null) {
+			response.put("mensaje", "El usuario Id:".concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
-		
 		}
+
 		try {
-			insumosUpdate.setNombre(insumos.getNombre());
-			insumosUpdate.setDescripcion(insumos.getDescripcion());
-			insumosUpdate.setEstado(insumos.getEstado());
-			insumosUpdate.setCodigo(insumos.getCodigo());
-			insumosUpdate.setDescripcion_umv(insumos.getDescripcion_umv());
-			insumosUpdate.setPrecio_unidad(insumos.getPrecio_unidad());
-			insumosUpdate.setTemperatura(insumos.getTemperatura());
-			insumosUpdate.setFecha_vencimiento(insumos.getFecha_vencimiento());
-			
-			insumosUpdate = insumoService.save(insumosActual);
-		}catch (DataAccessException e) {
-			response.put("mensaje", "Error al realizar actualizado en la base de datos");
+
+			insumoActual.setNombre(insumo.getNombre());
+			insumoActual.setPrecio_unidad(insumo.getPrecio_unidad());
+			insumoActual.setDescripcion(insumo.getDescripcion());
+			insumoActual.setCodigo(insumo.getCodigo());
+			insumoActual.setDescripcion_umv(insumo.getDescripcion_umv());
+			insumoActual.setEstado(insumo.getEstado());
+			insumoActual.setFecha_vencimiento(insumo.getFecha_vencimiento());
+			insumoActual.setTemperatura(insumo.getTemperatura());
+			insumoUpdate = insumoService.save(insumoActual);
+
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar el actualizar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-	
 		}
 		response.put("mensaje", "El insumo ha sido actualizado con exito!");
-		response.put("insumos", insumosUpdate);
+		response.put("usuario", insumoUpdate);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
