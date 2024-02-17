@@ -92,7 +92,7 @@ public class PreparacionRestControler {
 		try {
 			preparacionActual.setFecha(preparacion.getFecha());
 			preparacionActual.setPlato(preparacion.getPlato());
-			preparacionActual.setStock(preparacion.getStock());
+			preparacionActual.setInsumo(preparacion.getInsumo());
 			preparacionActual.setStock_necesario(preparacion.getStock_necesario());
 			preparacionActual.setTiempo_preparacion(preparacion.getTiempo_preparacion());
 			preparacionActual.setUsuario(preparacion.getUsuario());

@@ -37,7 +37,7 @@ public class Preparacion implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Stock stock;
+	private Insumo insumo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -64,6 +64,7 @@ public class Preparacion implements Serializable {
 	}
 
 
+
 	public int getStock_necesario() {
 		return stock_necesario;
 	}
@@ -71,6 +72,16 @@ public class Preparacion implements Serializable {
 
 	public void setStock_necesario(int stock_necesario) {
 		this.stock_necesario = stock_necesario;
+	}
+
+
+	public Insumo getInsumo() {
+		return insumo;
+	}
+
+
+	public void setInsumo(Insumo insumo) {
+		this.insumo = insumo;
 	}
 
 
@@ -91,16 +102,6 @@ public class Preparacion implements Serializable {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-
-	public Stock getStock() {
-		return stock;
-	}
-
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
 	}
 
 
