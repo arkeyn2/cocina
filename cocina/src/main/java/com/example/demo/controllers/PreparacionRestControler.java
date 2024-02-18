@@ -96,6 +96,7 @@ public class PreparacionRestControler {
 			preparacionActual.setStock_necesario(preparacion.getStock_necesario());
 			preparacionActual.setTiempo_preparacion(preparacion.getTiempo_preparacion());
 			preparacionActual.setUsuario(preparacion.getUsuario());
+			preparacionActual.setEstado(preparacion.getEstado());
 			
 			preparacionUpdate = preservis.save(preparacionActual);
 		}catch (DataAccessException e) {

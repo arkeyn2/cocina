@@ -31,6 +31,8 @@ public class Preparacion implements Serializable {
 	@Column(nullable = false)
 	private int tiempo_preparacion;
 	
+	private String estado;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Usuario usuario;
@@ -112,6 +114,18 @@ public class Preparacion implements Serializable {
 
 	public void setPlato(Plato plato) {
 		this.plato = plato;
+	}
+
+
+	
+	
+	public String getEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 
