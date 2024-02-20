@@ -22,13 +22,13 @@ public class Preparacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
+	
 	private Date fecha;
 	
-	@Column(nullable = false)
+
 	private int stock_necesario;
 	
-	@Column(nullable = false)
+
 	private int tiempo_preparacion;
 	
 	private String estado;
