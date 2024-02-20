@@ -112,6 +112,8 @@ public class PlatoController {
 			platoActual.setPunto_critico(plato.getPunto_critico());
 			platoActual.setObservaciones(plato.getObservaciones());
 			platoActual.setCalorias(plato.getCalorias());
+			platoActual.setTipo(plato.getTipo());
+			platoActual.setMiseplace(plato.getMiseplace());
 			
 			platoUpdate = platoser.save(platoActual);
 		}catch (DataAccessException e) {
