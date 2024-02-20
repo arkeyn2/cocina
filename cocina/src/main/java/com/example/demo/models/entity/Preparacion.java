@@ -33,6 +33,7 @@ public class Preparacion implements Serializable {
 	
 	private String estado;
 	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Usuario usuario;
@@ -46,9 +47,13 @@ public class Preparacion implements Serializable {
 	private Plato plato;
 	
 	
+	
 	public long getId() {
 		return id;
 	}
+
+
+
 
 
 	public void setId(long id) {

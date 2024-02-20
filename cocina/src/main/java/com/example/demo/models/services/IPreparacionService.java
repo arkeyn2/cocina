@@ -2,6 +2,7 @@ package com.example.demo.models.services;
 
 import java.util.List;
 
+
 import com.example.demo.models.entity.Preparacion;
 
 public interface IPreparacionService {
@@ -13,5 +14,7 @@ public interface IPreparacionService {
 	public Preparacion save(Preparacion preparacion);
 	
 	public void delete(Long id);
+	
+	public List<Preparacion> platoporid(long id);
 	
 }

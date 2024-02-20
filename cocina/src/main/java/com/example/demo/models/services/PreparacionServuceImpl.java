@@ -35,5 +35,13 @@ public class PreparacionServuceImpl implements IPreparacionService{
 	public void delete(Long id) {
 		preparacionDao.deleteById(id);
 	}
+	
+	@Override
+	public List<Preparacion> platoporid(long id) {
+		return preparacionDao.platoporid(id);
+		
+		
+}
+	
 
 }
