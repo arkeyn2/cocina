@@ -22,17 +22,18 @@ public class Preparacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
+
 	private Date fecha;
 	
-	@Column(nullable = false)
+
 	private int stock_necesario;
 	
-	@Column(nullable = false)
+
 	private int tiempo_preparacion;
 	
 	private String estado;
 	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Usuario usuario;
@@ -46,9 +47,13 @@ public class Preparacion implements Serializable {
 	private Plato plato;
 	
 	
+	
 	public long getId() {
 		return id;
 	}
+
+
+
 
 
 	public void setId(long id) {

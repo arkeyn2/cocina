@@ -10,7 +10,9 @@ INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (1, 1);
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (2, 3);
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (3, 2);
 
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('vejetariana','activo','Fajita');
+
+INSERT INTO public.plato(calorias, detalle, estado, nombre, observaciones, preparacion, punto_critico)VALUES ( 120,'arroz con leche','activo', 'arroz con leche','OBSERVACIONES', 'Poner en una olla 150 cc de agua y llevar a ebullición. Agregar el arroz con leche, dejar cocinar durante 20 a 25 minutos sin dejar de revolver, ya cocinado el arroz, apagar fuego y dejar que baje la temperatura.Una vez templado, porciona en pocillos desechables y agrega coco rallado en el centro. ', 'PUNTOS CRÍTICOS *Controlar tiempo de cocción de preparación.*Montar en porciones individuales, esperar reducción de temperatura y mover a equipo de frio. ');
+
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('blanco','activo','Arroz');
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('con carne','activo','Fetuchini');
 INSERT INTO public.plato(detalle,estado,nombre)VALUES ('asado','activo','Pollo');
@@ -361,13 +363,7 @@ INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,ins
 INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (3000,6,2,1000,3,3);
 INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (50,6,8,10,8,4);
 
-INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('12-03-2023',100,26,1,1,1);
-INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('10-05-2024',100,47,1,1,1);
-INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('01-01-2024',100,1,1,1,1);
-INSERT INTO public.preparacion(fecha,stock_necesario,tiempo_preparacion,plato_id,stock_id,usuario_id)VALUES ('25-12-2024',100,39,1,1,1);
 
-
-
-
-
+INSERT INTO public.preparacion(stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES (200, 20, 1, 1,1);
+INSERT INTO public.preparacion(stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES (200, 10, 2, 1,1);
 

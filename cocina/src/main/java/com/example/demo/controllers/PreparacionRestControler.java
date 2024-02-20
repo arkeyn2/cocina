@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.example.demo.models.entity.Plato;
 import com.example.demo.models.entity.Preparacion;
 import com.example.demo.models.services.IPreparacionService;
@@ -97,6 +98,7 @@ public class PreparacionRestControler {
 			preparacionActual.setTiempo_preparacion(preparacion.getTiempo_preparacion());
 			preparacionActual.setUsuario(preparacion.getUsuario());
 			preparacionActual.setEstado(preparacion.getEstado());
+
 			
 			preparacionUpdate = preservis.save(preparacionActual);
 		}catch (DataAccessException e) {
@@ -124,4 +126,26 @@ public class PreparacionRestControler {
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
+	
+	@GetMapping("/preparaciones/platos/{id}")
+	public ResponseEntity<?> chicaportrago(@PathVariable Long id) {
+
+		List<Preparacion> accion = null;
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			accion = preservis.platoporid(id);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (accion == null) {
+			response.put("mensaje", "La accion Id:".concat(id.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Preparacion>>(accion, HttpStatus.OK);
+	}
+	
 }
