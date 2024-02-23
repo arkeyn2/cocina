@@ -22,7 +22,7 @@ public class Preparacion implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-
+	
 	private Date fecha;
 	
 
