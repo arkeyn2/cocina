@@ -18,7 +18,6 @@ public class Minuta implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
 	private String nombre;
 	
 	private Date fecha;
