@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,11 +62,14 @@ public class MinutaRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> create (@RequestBody Minuta minutas){
 	
+		
 		Minuta minutasnew =null;
+		System.out.println(minutas.getFecha());
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
 			minutasnew = minutaService.save(minutas);
+			System.out.println(minutasnew.getFecha());
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));

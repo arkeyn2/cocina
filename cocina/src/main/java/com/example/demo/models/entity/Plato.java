@@ -33,7 +33,7 @@ public class Plato implements Serializable {
 	@Column(length = 1000)
 	private String observaciones;
 	
-	private String calorias;
+	private int calorias;
 	@Column(length = 1000)
 	private String preparacion;
 	
@@ -81,7 +81,7 @@ public class Plato implements Serializable {
 	}
 
 
-	public String getCalorias() {
+	public int getCalorias() {
 		return calorias;
 	}
 
@@ -96,7 +96,7 @@ public class Plato implements Serializable {
 	}
 
 
-	public void setCalorias(String calorias) {
+	public void setCalorias(int calorias) {
 		calorias = calorias;
 	}
 	

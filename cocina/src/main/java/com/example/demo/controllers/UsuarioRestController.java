@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +32,9 @@ public class UsuarioRestController {
 
 	@Autowired
 	private IUsuarioService usuarioService;
+	private final Logger log = LoggerFactory.getLogger(UsuarioRestController.class);
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
 	@GetMapping("/usuarios")
 	public List<Usuario> index() {
@@ -82,8 +88,11 @@ public class UsuarioRestController {
 	public ResponseEntity<?> create(@RequestBody Usuario usuario) {
 
 		Usuario usuarionew = null;
+		String newpass = passwordEncoder.encode(usuario.getPassword());
+		usuario.setPassword(newpass);
+		
 		Map<String, Object> response = new HashMap<>();
-
+		
 		try {
 			usuarionew = usuarioService.save(usuario);
 		} catch (DataAccessException e) {
@@ -103,6 +112,9 @@ public class UsuarioRestController {
 	public ResponseEntity<?> update(@RequestBody Usuario usuario, @PathVariable Long id) {
 
 		Usuario usuarioActual = usuarioService.findById(id);
+		
+		String newpass = passwordEncoder.encode(usuario.getPassword());
+		usuario.setPassword(newpass);
 
 		Usuario usuarioUpdate = null;
 
