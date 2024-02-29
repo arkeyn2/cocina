@@ -1,5 +1,6 @@
 package com.example.demo.models.services;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,11 @@ public class MinutaService implements IMinutaService{
 		minutaDao.deleteById(id);
 		
 	}
+	
+	@Override
+	public List<Object> deleteminuta(String nombre , Date fecha) {
+		return minutaDao.deleteminuta(nombre, fecha );
+		
+	}
+	
 }

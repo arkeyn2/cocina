@@ -361,10 +361,10 @@ INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_
 
 
 
-INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (1000,2,1000,1000,8,1);
-INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (2500,3,2600,2600,9,2);
-INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (3000,6,2,1000,3,3);
-INSERT INTO public.stock(cantidad,entrada,salida,stock_critico,stock_inicial,insumos_id)VALUES (50,6,8,10,8,4);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,insumos_id)VALUES (1000,1000,8,1);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,insumos_id)VALUES (2500,2600,9,2);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,insumos_id)VALUES (3000,1000,3,3);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,insumos_id)VALUES (50,10,8,4);
 
 
 INSERT INTO public.preparacion(stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES (200, 20, 49, 1,1);

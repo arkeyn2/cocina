@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.sql.Date;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -125,5 +126,24 @@ public class MinutaRestController {
 		response.put("mensaje", "La minuta fue eliminada con exito!");
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/minutas/delete/{nombre}/{fecha}")
+	public ResponseEntity<?> eliminar_fechastomadas(@PathVariable String nombre,@PathVariable Date fecha) {
+
+		Map<String, Object> response = new HashMap<>();
+		
+		List<Object> reservahora = null;
+
+		try {
+			reservahora = minutaService.deleteminuta(nombre,fecha);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al ejecutar procedimiento almacenado en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		return new ResponseEntity <List<Object>>(reservahora, HttpStatus.OK);
 	}
 }
