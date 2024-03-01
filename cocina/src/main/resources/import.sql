@@ -1,14 +1,13 @@
-INSERT INTO rol (rol_nombre) VALUES ('ROLE_ADMIN'), ('ROLE_USER'), ('ROLE_SECRETARIA');
+INSERT INTO rol (rol_nombre) VALUES ('ROLE_ADMIN'), ('ROLE_SECRETARIA'), ('ROLE_USER');
 
 INSERT INTO public.usuario(apellido, email, nombre, nombre_usuario, password, rut) VALUES ('admin', 'a@a.a','admin' ,'admin' , '$2a$10$g1NiG2AiQpTxg/a8HkvB.ObqopcO1QCk76jywtelrv17BMpulR4F2', '123456');
-	
+INSERT INTO public.usuario(apellido, email, nombre, nombre_usuario, password, rut) VALUES ('trabajador', 'u@u.u', 'trabajador', 'trabajador','$2a$10$3qeSO2i0Z4bcVM.ey0R1U.b9bqnoQys0VPJmGMRlA56FaMAjxIVXa', '98765432');	
 INSERT INTO public.usuario(apellido, email, nombre, nombre_usuario, password, rut) VALUES ('user', 's@s.s', 'user', 'user', '$2a$10$H7JVREJUNernaPQ7ruDbpeWjXqv.K2a0oninIjJJzAL3sFWfEGw3O', '1234569');
 	
-INSERT INTO public.usuario(apellido, email, nombre, nombre_usuario, password, rut) VALUES ('trabajador', 'u@u.u', 'trabajador', 'trabajador','$2a$10$GrxgW1ydycwaoNGdMWrykulnU8w90ay2oS/p4G60mkMx3hbJRlNfC', '98765432');
 
 INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (1, 1);
-INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (2, 3);
-INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (3, 2);
+INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (2, 2);
+INSERT INTO public.usuario_rol(	usuario_id, rol_id)	VALUES (3, 3);
 
 
 INSERT INTO public.plato(calorias, detalle, estado,foto,miseplace ,nombre, observaciones, preparacion, punto_critico)VALUES ( 120,'ARROZ CON LECHE','activo','0dccfe2b-d443-422c-bd83-fdb0d566ccf5_arroz_con_leche_800x800.webp','Sanitizar empaque primario de arroz, leche, azúcar, canela y esencia.' ,'ARROZ CON LECHE','OBSERVACIONES', 'Poner en una olla 150 cc de agua y llevar a ebullición. Agregar el arroz con leche, dejar cocinar durante 20 a 25 minutos sin dejar de revolver, ya cocinado el arroz, apagar fuego y dejar que baje la temperatura.Una vez templado, porciona en pocillos desechables y agrega coco rallado en el centro. ', 'PUNTOS CRÍTICOS *Controlar tiempo de cocción de preparación.*Montar en porciones individuales, esperar reducción de temperatura y mover a equipo de frio. ');
