@@ -27,10 +27,6 @@ public class Stock implements Serializable {
 	
 	@Column(nullable = false)
 	private int stock_critico;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Insumo insumos;
 
 	public long getId() {
 		return id;
@@ -60,9 +56,6 @@ public class Stock implements Serializable {
 		return serialVersionUID;
 	}
 
-	public Insumo getInsumos() {
-		return insumos;
-	}
 
 	public int getStock_inicial() {
 		return stock_inicial;
@@ -70,11 +63,6 @@ public class Stock implements Serializable {
 
 	public void setStock_inicial(int stock_inicial) {
 		this.stock_inicial = stock_inicial;
-	}
-
-
-	public void setInsumos(Insumo insumos) {
-		this.insumos = insumos;
 	}
 
 	private static final long serialVersionUID = 1L;

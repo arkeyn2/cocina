@@ -92,7 +92,6 @@ public class StockResController {
 		try {
 			stockActual.setCantidad(stock.getCantidad());
 			stockActual.setStock_critico(stock.getStock_critico());
-			stockActual.setInsumos(stock.getInsumos());
 			stockActual.setStock_inicial(stock.getStock_inicial());
 			
 			stockUpdate = stockser.save(stockActual);
