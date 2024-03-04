@@ -104,6 +104,7 @@ public class InsumoController {
 			insumoActual.setEstado(insumo.getEstado());
 			insumoActual.setFecha_vencimiento(insumo.getFecha_vencimiento());
 			insumoActual.setTemperatura(insumo.getTemperatura());
+			insumoActual.setStock(insumo.getStock());
 			insumoUpdate = insumoService.save(insumoActual);
 
 		} catch (DataAccessException e) {
