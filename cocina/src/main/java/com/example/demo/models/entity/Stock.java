@@ -25,10 +25,6 @@ public class Stock implements Serializable {
 
 	private int stock_inicial;
 	
-	private int entrada;
-	
-	private int salida;
-	
 	@Column(nullable = false)
 	private int stock_critico;
 	
@@ -76,21 +72,6 @@ public class Stock implements Serializable {
 		this.stock_inicial = stock_inicial;
 	}
 
-	public int getEntrada() {
-		return entrada;
-	}
-
-	public void setEntrada(int entrada) {
-		this.entrada = entrada;
-	}
-
-	public int getSalida() {
-		return salida;
-	}
-
-	public void setSalida(int salida) {
-		this.salida = salida;
-	}
 
 	public void setInsumos(Insumo insumos) {
 		this.insumos = insumos;

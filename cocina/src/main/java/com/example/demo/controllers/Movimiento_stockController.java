@@ -1,7 +1,5 @@
 package com.example.demo.controllers;
 
-import java.sql.Date;
-import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,129 +19,109 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.models.entity.Minuta;
-import com.example.demo.models.entity.Tipo;
-import com.example.demo.models.services.IMinutaService;
+import com.example.demo.models.entity.Movimiento_stock;
+import com.example.demo.models.entity.Plato;
+import com.example.demo.models.entity.Stock;
+import com.example.demo.models.services.IMovimiento_stockservice;
 
-@CrossOrigin(origins ={"http://loalhost:4200","*"})
+@CrossOrigin(origins = { "http://localhost:4200","*" })
 @RestController
 @RequestMapping("/api")
-public class MinutaRestController {
-
-	@Autowired
-	private IMinutaService minutaService;
+public class Movimiento_stockController {
 	
-	@GetMapping("/minutas")
-	public List<Minuta>index(){
-		return minutaService.findAll();
+	@Autowired
+	private IMovimiento_stockservice movser;
+
+	@GetMapping("/movstocks")
+	public List<Movimiento_stock>findAll() {
+		return (List<Movimiento_stock>) movser.findAll();
 	}
 	
-	@GetMapping("/minutas/{id}")
+	@GetMapping("/movstocks/{id}")
 	public ResponseEntity<?> show(@PathVariable Long id){
 		
-		Minuta minutas = null;
+		Movimiento_stock mov = null;
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			minutas = minutaService.findById(id);
+			mov = movser.findById(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta a la base de datos");
 			response.put("error",e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		}
 		
-		if (minutas == null) {
-			response.put("mensaje", "La minuta id:".concat(id.toString().concat(" no existe en la base de datos!")));
-		
+		if (mov == null) {
+			response.put("mensaje", "El movimiento id:".concat(id.toString().concat(" no existe en la base de datos!")));
 		}
-		return new ResponseEntity<Minuta>(minutas, HttpStatus.OK);
+		return new ResponseEntity<Movimiento_stock>(mov, HttpStatus.OK);
 	}
 	
-	@PostMapping("/minutas")
+	@PostMapping("/movstocks")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> create (@RequestBody Minuta minutas){
+	public ResponseEntity<?> create (@RequestBody Movimiento_stock movstock){
 	
-		
-		Minuta minutasnew =null;
-		System.out.println(minutas.getFecha());
+		Movimiento_stock socknew =null;
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			minutasnew = minutaService.save(minutas);
-			System.out.println(minutasnew.getFecha());
+			socknew = movser.save(movstock);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "La minuta ha sido creado con exito!");
-		response.put("minutas", minutasnew);
+		response.put("mensaje", "El movimiento ha sido creado con exito!");
+		response.put("trago", socknew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/minutas/{id}")
+	@PutMapping("/movstocks/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<?> update(@RequestBody Minuta minutas, @PathVariable Long id ){
+	public ResponseEntity<?> update(@RequestBody Movimiento_stock stock, @PathVariable Long id ){
 	
-		Minuta minutasActual =minutaService.findById(id);
+		Movimiento_stock stockActual =movser.findById(id);
 		
-		Minuta minutasUpdate =null;
+		Movimiento_stock stockUpdate =null;
 		
 		Map<String, Object> response = new HashMap<>();
 		
-		if (minutas == null) {
-			response.put("mensaje", "La minuta Id:" .concat(id.toString().concat(" no existe en la base de datos!")));
+		if (stock == null) {
+			response.put("mensaje", "El movimiento Id:" .concat(id.toString().concat(" no existe en la base de datos!")));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		
 		}
 		try {
-			minutasActual.setNombre(minutas.getNombre());
-			minutasActual.setHorario(minutas.getHorario());
-			minutasActual.setDetalle(minutas.getDetalle());
-			minutasActual.setFecha(minutas.getFecha());
-			minutasUpdate = minutaService.save(minutasActual);
+			stockActual.setEntrada(stock.getEntrada());
+			stockActual.setSalida(stock.getSalida());
+			stockActual.setFecha(stock.getFecha());
+			stockActual.setStock(stock.getStock());
+			
+			stockUpdate = movser.save(stockActual);
 		}catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar actualizado en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	
 		}
-		response.put("mensaje", "La minuta ha sido actualizado con exito!");
-		response.put("minuta", minutasUpdate);
+		response.put("mensaje", "El movimiento ha sido actualizado con exito!");
+		response.put("stock", stockUpdate);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping("/minutas/{id}")
+	@DeleteMapping("/movstocks/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id) {
 		Map<String, Object> response = new HashMap<>();
 		try {
-			minutaService.delete(id);
+			movser.delete(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al eliminar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "La minuta fue eliminada con exito!");
+		response.put("mensaje", "El movimiento eliminada con exito!");
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
-	
-	
-	@GetMapping("/minutas/delete/{nombre}/{fecha}")
-	public ResponseEntity<?> eliminar_fechastomadas(@PathVariable String nombre,@PathVariable Date fecha) {
 
-		Map<String, Object> response = new HashMap<>();
-		
-		List<Object> reservahora = null;
-
-		try {
-			reservahora = minutaService.deleteminuta(nombre,fecha);
-		} catch (DataAccessException e) {
-			response.put("mensaje", "Error al ejecutar procedimiento almacenado en la base de datos");
-			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
-		}
-
-		return new ResponseEntity <List<Object>>(reservahora, HttpStatus.OK);
-	}
 }
