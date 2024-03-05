@@ -45,7 +45,7 @@ public class Insumo implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Stock stock;
+	private Movimiento_stock movimiento_stock;
 	
 	public long getId() {
 		return id;
@@ -125,6 +125,14 @@ public class Insumo implements Serializable {
 	
 	
 
+	public Movimiento_stock getMovimiento_stock() {
+		return movimiento_stock;
+	}
+
+	public void setMovimiento_stock(Movimiento_stock movimiento_stock) {
+		this.movimiento_stock = movimiento_stock;
+	}
+
 	public Tipo getTipo() {
 		return tipo;
 	}
@@ -132,16 +140,6 @@ public class Insumo implements Serializable {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
-
-	public Stock getStock() {
-		return stock;
-	}
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
-	}
-
-
 
 	private static final long serialVersionUID = 1L;
 
