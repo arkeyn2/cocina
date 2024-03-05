@@ -21,9 +21,11 @@ public class Movimiento_stock implements Serializable {
 
 	private Date fecha;
 
-	private String entrada;
+	private int entrada;
 
-	private String salida;
+	private int salida;
+	
+	private int Factura;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
@@ -45,19 +47,19 @@ public class Movimiento_stock implements Serializable {
 		this.fecha = fecha;
 	}
 
-	public String getEntrada() {
+	public int getEntrada() {
 		return entrada;
 	}
 
-	public void setEntrada(String entrada) {
+	public void setEntrada(int entrada) {
 		this.entrada = entrada;
 	}
 
-	public String getSalida() {
+	public int getSalida() {
 		return salida;
 	}
 
-	public void setSalida(String salida) {
+	public void setSalida(int salida) {
 		this.salida = salida;
 	}
 	
@@ -67,6 +69,16 @@ public class Movimiento_stock implements Serializable {
 
 	public void setStock(Stock stock) {
 		this.stock = stock;
+	}
+
+
+
+	public int getFactura() {
+		return Factura;
+	}
+
+	public void setFactura(int factura) {
+		Factura = factura;
 	}
 
 

@@ -96,6 +96,7 @@ public class Movimiento_stockController {
 			stockActual.setSalida(stock.getSalida());
 			stockActual.setFecha(stock.getFecha());
 			stockActual.setStock(stock.getStock());
+			stockActual.setFactura(stock.getFactura());
 			
 			stockUpdate = movser.save(stockActual);
 		}catch (DataAccessException e) {
