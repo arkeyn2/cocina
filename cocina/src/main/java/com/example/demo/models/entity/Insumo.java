@@ -3,12 +3,14 @@ package com.example.demo.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -38,14 +40,14 @@ public class Insumo implements Serializable {
 	private String estado;
 
 	private Date fecha_vencimiento;
+	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "movimiento_stock_id")
+	private Movimiento_stock movimiento_stock;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Tipo tipo;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Movimiento_stock movimiento_stock;
 	
 	public long getId() {
 		return id;
@@ -122,6 +124,14 @@ public class Insumo implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public Tipo getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
 	
 	
 
@@ -133,13 +143,7 @@ public class Insumo implements Serializable {
 		this.movimiento_stock = movimiento_stock;
 	}
 
-	public Tipo getTipo() {
-		return tipo;
-	}
 
-	public void setTipo(Tipo tipo) {
-		this.tipo = tipo;
-	}
 
 	private static final long serialVersionUID = 1L;
 

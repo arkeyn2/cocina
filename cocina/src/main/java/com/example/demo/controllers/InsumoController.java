@@ -104,9 +104,15 @@ public class InsumoController {
 			insumoActual.setEstado(insumo.getEstado());
 			insumoActual.setFecha_vencimiento(insumo.getFecha_vencimiento());
 			insumoActual.setTemperatura(insumo.getTemperatura());
+			
 			insumoActual.setMovimiento_stock(insumo.getMovimiento_stock());
+			
 			insumoUpdate = insumoService.save(insumoActual);
-
+			
+			System.out.print(insumoActual.getMovimiento_stock().getFactura());
+			System.out.print("--");
+			System.out.print(insumoUpdate.getMovimiento_stock().getFactura());
+			
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el actualizar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));

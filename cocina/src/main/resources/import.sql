@@ -120,13 +120,13 @@ INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (3000,1000,
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (50,10,8);
 
 
-INSERT INTO public.movimiento_stock(factura, entrada, fecha,salida, stock_id)VALUES(3658963,1000,'05-03-2024',0,1);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida, stock_id)VALUES(325698, 0,'05-03-2024',2000,2);
+INSERT INTO public.movimiento_stock(factura, entrada, fecha,salida,stock_id)VALUES(3658963,1000,'05-03-2024',0,1);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'05-03-2024',2000,2);
 
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,tipo_id,movimiento_stock_id)VALUES ('	104521640	','	ACEITE OLIVA 5 L	','	Unidad	','	SECO	','	 $21,000 	',	1 ,1	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,tipo_id,movimiento_stock_id)VALUES ('	104512230	','	ACEITE OLIVA E/VIRGEN OLITALIA 5 L	','	Unidad	','	SECO	','	 $50,000 	',	1,2 	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,tipo_id,movimiento_stock_id)VALUES ('	150000855	','	ACEITE OLIVA E/VIRGEN ZAYTA 5 L	','	Unidad	','	SECO	','	 $45,000 	',	1,2 	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,tipo_id,movimiento_stock_id)VALUES ('	104514840	','	ACEITE OLIVA OLITALIA 5 L	','	Unidad	','	SECO	','	 $45,900 	',	1 ,1	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104521640	','	ACEITE OLIVA 5 L	','	Unidad	','	SECO	','	 $21,000 	',1,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104512230	','	ACEITE OLIVA E/VIRGEN OLITALIA 5 L	','	Unidad	','	SECO	','	 $50,000 	',1,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000855	','	ACEITE OLIVA E/VIRGEN ZAYTA 5 L	','	Unidad	','	SECO	','	 $45,000 	',2,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514840	','	ACEITE OLIVA OLITALIA 5 L	','	Unidad	','	SECO	','	 $45,900 	',2,	1	);
 
 
 
