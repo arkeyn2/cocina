@@ -3,3 +3,4 @@ cocina/src/main/resources/application.properties
 cocina/src/main/resources/application.properties
 cocina/src/main/resources/application.properties
 cocina/src/main/java/com/example/demo/controllers/StockResController.java
+*.properties

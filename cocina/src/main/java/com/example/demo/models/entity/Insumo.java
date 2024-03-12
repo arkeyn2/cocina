@@ -24,7 +24,7 @@ public class Insumo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(nullable = false)
+
 	private String codigo;
 	
 	private String nombre;
