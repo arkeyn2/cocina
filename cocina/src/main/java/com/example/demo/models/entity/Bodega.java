@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name = "bodega")
 public class Bodega implements Serializable{
@@ -19,7 +21,7 @@ public class Bodega implements Serializable{
 	
 	private String nombre;
 
-    
+ 
 
     public long getId() {
         return id;

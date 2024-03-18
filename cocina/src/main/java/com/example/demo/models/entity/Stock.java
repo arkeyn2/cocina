@@ -2,16 +2,16 @@ package com.example.demo.models.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "stock")
@@ -27,6 +27,10 @@ public class Stock implements Serializable {
 	
 	@Column(nullable = false)
 	private int stock_critico;
+
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "bodega_id")
+	private Bodega bodega;
 
 	public long getId() {
 		return id;
@@ -67,4 +71,13 @@ public class Stock implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	public Bodega getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(Bodega bodega) {
+		this.bodega = bodega;
+	}
+
+	
 }
