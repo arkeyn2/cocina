@@ -114,10 +114,10 @@ INSERT INTO public.tipo(nombre)VALUES ('	SEMILLAS	');
 INSERT INTO public.tipo(nombre)VALUES ('	MANTEQUILLA Y MARGARINA	');
 INSERT INTO public.tipo(nombre)VALUES ('	QUESOS SEMI DUROS	');
 
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (1000,1000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (2500,2600,9);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (3000,1000,3);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (50,10,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (1000,1000,8,1);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (2500,2600,9,1);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (3000,1000,3,2);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (50,10,8,2);
 
 
 INSERT INTO public.movimiento_stock(factura, entrada, fecha,salida,stock_id)VALUES(3658963,1000,'05-03-2024',0,1);
@@ -140,3 +140,5 @@ INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 3, 2,1);
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 4, 2,1);
 
+INSERT INTO public.bodega(nombre) VALUES ('bodega1')
+INSERT INTO public.bodega(nombre) VALUES ('bodega2')
