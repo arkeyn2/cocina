@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -29,7 +32,9 @@ public class Minuta implements Serializable{
 	
 	private String detalle;
 	
-	
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "plato_id")
+	private Plato plato;
 	
 	public long getId() {
 		return id;
@@ -51,6 +56,18 @@ public class Minuta implements Serializable{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+
+
+	public Plato getPlato() {
+		return plato;
+	}
+
+
+
+	public void setPlato(Plato plato) {
+		this.plato = plato;
 	}
 
 
