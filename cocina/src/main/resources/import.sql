@@ -14,13 +14,6 @@ INSERT INTO public.plato(calorias, detalle, estado,foto,miseplace ,nombre, obser
 INSERT INTO public.plato(calorias, detalle, estado,foto,miseplace ,nombre, observaciones, preparacion, punto_critico)VALUES ( 450,'BIFE DE VACUNO CON ENSALADA ','activo','e2b0d297-6bac-4cda-ae1e-19f5e54edb3d_bife-con-ensalada-riquisima-foto-principal.jpg','Sanitizar verduras y envases primarios.Cortar vegetales (betarraga,lechuga y repollo) en juliana y chiffonade. Retirar exceso de tallos en brócoli y coliflor. Cortar vacuno en porciones tipo bife.' ,'REGIMEN HIPOCALÓRICO ','En montaje de platos asegurar que verduras cocidas tengan una temperatura menor a 5°C.En el caso del bife, montaje rápido en contenedores isotérmicos para no perder temperatura, utilizar horno mantenedor en caso de ser necesario. (T°>65°C).', 'En una olla blanquear, con una pizca de sal, durante 5 minutos el brócoli, coliflor y mix primavera, luego de transcurrido el tiempo enfriar con agua corriendo. En un sartén con aceite se incorpora el corte de vacuno con condimentos y sellar 5 minutos por lado, verificar temperatura interna (>65°C). Montar contenedor con cama de lechuga y repollo, por un lado la betarraga, primavera y crucíferas. ', '*Cuidar cadenas de frio en proteínas, <5°c en proteína cruda. *Respetar tiempos de cocción de proteínas y controlar temperatura de cocción, >75°C en centro del alimento. *Contaminación cruzada en productos crudos/cocidos y vegetales/cárnicos, respetar colores de tablas de cortar.');
 INSERT INTO public.plato(calorias, detalle, estado,foto,miseplace ,nombre, observaciones, preparacion, punto_critico)VALUES ( 35,'ENSALADA 3 COLORES N°1  ','activo','a6fb89ed-4f58-425b-b121-ff92b663d410_receta-de-vinagreta-ensalada-de-col-y-zanahoria.jpg','Sanitizar verduras y cortar en corte juliana (zanahoria y repollo) y rodajas (pepino). Refrigerar. ' ,'ENSALADA  ','Montaje debe ser rápido para no perder temperatura de verduras. ', 'Verificar que los cortes de las verduras cumplan con lo establecido, montar en contenedores isotérmicos y refrigerar inmediatamente.   ', '*Controlar tiempo de sanitizado según producto utilizado. *Utilizar tablas verdes para mise en place.  *Supervisar temperatura de área y de equipos de frio. ');
 
-
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('blanco','activo','Arroz');
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('con carne','activo','Fetuchini');
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('asado','activo','Pollo');
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al plato','activo','Humita');
-INSERT INTO public.plato(detalle,estado,nombre)VALUES ('al horno','activo','Pastel de papa');
-
 INSERT INTO public.tipo(nombre)VALUES ('ACEITES DE OLIVA');
 INSERT INTO public.tipo(nombre)VALUES ('ACEITES ESPECIALES');
 INSERT INTO public.tipo(nombre)VALUES ('ACEITES VEGETALES');
@@ -114,10 +107,13 @@ INSERT INTO public.tipo(nombre)VALUES ('	SEMILLAS	');
 INSERT INTO public.tipo(nombre)VALUES ('	MANTEQUILLA Y MARGARINA	');
 INSERT INTO public.tipo(nombre)VALUES ('	QUESOS SEMI DUROS	');
 
+INSERT INTO public.bodega( nombre)	VALUES ( 'bodega1');
+INSERT INTO public.bodega(nombre)	VALUES ( 'bodega2');
+
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (1000,1000,8,1);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (2500,2600,9,1);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (3000,1000,3,2);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (50,10,8,2);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (3000,1000,3,1);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial,bodega_id)VALUES (50,10,8,1);
 
 
 INSERT INTO public.movimiento_stock(factura, entrada, fecha,salida,stock_id)VALUES(3658963,1000,'05-03-2024',0,1);
@@ -140,5 +136,3 @@ INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 3, 2,1);
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 4, 2,1);
 
-INSERT INTO public.bodega(nombre) VALUES ('bodega1')
-INSERT INTO public.bodega(nombre) VALUES ('bodega2')
