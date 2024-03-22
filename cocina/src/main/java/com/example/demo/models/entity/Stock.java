@@ -28,10 +28,6 @@ public class Stock implements Serializable {
 	@Column(nullable = false)
 	private int stock_critico;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "bodega_id")
-	private Bodega bodega;
-
 	public long getId() {
 		return id;
 	}
@@ -71,13 +67,7 @@ public class Stock implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	public Bodega getBodega() {
-		return bodega;
-	}
 
-	public void setBodega(Bodega bodega) {
-		this.bodega = bodega;
-	}
 
 	
 }
