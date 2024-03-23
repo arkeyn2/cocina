@@ -16,4 +16,8 @@ public interface IMinutaDao extends CrudRepository<Minuta, Long>{
 	@Query(value= "SELECT cast(eliminar_minuta(?1,?2)as text)",nativeQuery = true)
 	public List<Object> deleteminuta(String nombre, Date fecha);
 	
+	/*@Modifying
+    @Query(value= "SELECT eliminar_minuta(:nombre, :fecha)", nativeQuery = true)
+    public void deleteMinuta(@Param("nombre") String nombre, @Param("fecha") Date fecha);
+	*/
 }

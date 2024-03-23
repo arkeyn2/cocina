@@ -131,7 +131,7 @@ public class MinutaRestController {
 	
 	@GetMapping("/minutas/delete/{nombre}/{fecha}")
 	public ResponseEntity<?> eliminar_fechastomadas(@PathVariable String nombre,@PathVariable Date fecha) {
-
+		System.out.println(nombre);
 		Map<String, Object> response = new HashMap<>();
 		
 		List<Object> reservahora = null;
