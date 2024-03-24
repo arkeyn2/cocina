@@ -120,4 +120,5 @@ public class TipoRestController {
 
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 	}
+	
 }

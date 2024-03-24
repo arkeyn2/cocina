@@ -36,5 +36,5 @@ public class TipoService implements ITipoService{
 		tipoDao.deleteById(id);
 		
 	}
-
+	
 }
