@@ -80,13 +80,15 @@ public class PlatoController {
 		
 		try {
 			platonew = platoser.save(plato);
+			System.out.println(plato.getCalorias());
+			System.out.println(plato.getNombre());
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		response.put("mensaje", "El plato ha sido creado con exito!");
-		response.put("trago", platonew);
+		response.put("plato", platonew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	

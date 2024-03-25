@@ -33,12 +33,13 @@ public class Plato implements Serializable {
 	@Column(length = 1000)
 	private String observaciones;
 	
-	private int calorias;
 	@Column(length = 1000)
 	private String preparacion;
 	
 	private String tipo;
 	@Column(length = 1000)
+	
+	private int calorias;
 	private String miseplace;
 	
 	public String getPunto_critico() {
@@ -81,8 +82,16 @@ public class Plato implements Serializable {
 	}
 
 
+
+
+
 	public int getCalorias() {
 		return calorias;
+	}
+
+
+	public void setCalorias(int calorias) {
+		this.calorias = calorias;
 	}
 
 
@@ -96,9 +105,7 @@ public class Plato implements Serializable {
 	}
 
 
-	public void setCalorias(int calorias) {
-		calorias = calorias;
-	}
+
 	
 	public String getFoto() {
 		return foto;
