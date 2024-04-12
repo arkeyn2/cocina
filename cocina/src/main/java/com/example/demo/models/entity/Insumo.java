@@ -2,6 +2,7 @@ package com.example.demo.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -49,9 +52,9 @@ public class Insumo implements Serializable {
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Tipo tipo;
 
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "bodega_id")
-	private Bodega bodega;
+	@ManyToMany
+    @JoinTable(name = "insumo_bodega", joinColumns = @JoinColumn(name = "insumo_id"), inverseJoinColumns = @JoinColumn(name = "bodiga_id"))
+	private Set<Bodega> bodega;
 
 	
 	public long getId() {
@@ -149,13 +152,16 @@ public class Insumo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-	public Bodega getBodega() {
+	public Set<Bodega> getBodega() {
 		return bodega;
 	}
 
-	public void setBodega(Bodega bodega) {
+	public void setBodega(Set<Bodega> bodega) {
 		this.bodega = bodega;
 	}
+
+
+
 
 	
 

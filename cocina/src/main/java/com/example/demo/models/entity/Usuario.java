@@ -47,6 +47,10 @@ public class Usuario {
     @ManyToMany
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
+    
+	@ManyToMany
+    @JoinTable(name = "usuario_bodega", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "bodiga_id"))
+	private Set<Bodega> bodega;
 
     public Usuario() {
     }
@@ -124,5 +128,13 @@ public class Usuario {
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
     }
+
+	public Set<Bodega> getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(Set<Bodega> bodega) {
+		this.bodega = bodega;
+	}
 
 }

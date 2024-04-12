@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.istack.NotNull;
 
 @Entity
 public class Movimiento_stock implements Serializable {
@@ -22,7 +24,10 @@ public class Movimiento_stock implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@Column(nullable = true)
+	private int cantidad_platos;
+	
+	@NotNull
 	private Date fecha;
 
 	private int entrada;
@@ -30,7 +35,6 @@ public class Movimiento_stock implements Serializable {
 	private int salida;
 	
 	private int Factura;
-	
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "stock_id")
@@ -84,6 +88,16 @@ public class Movimiento_stock implements Serializable {
 
 	public void setStock(Stock stock) {
 		this.stock = stock;
+	}
+
+
+
+	public int getCantidad_platos() {
+		return cantidad_platos;
+	}
+
+	public void setCantidad_platos(int cantidad_platos) {
+		this.cantidad_platos = cantidad_platos;
 	}
 
 
