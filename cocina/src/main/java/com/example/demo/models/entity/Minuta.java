@@ -32,6 +32,11 @@ public class Minuta implements Serializable{
 	
 	private String detalle;
 	
+	private String bodega;
+	
+	@Column(nullable = true)
+	private int cantidad_plato;
+	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "plato_id")
 	private Plato plato;
@@ -98,6 +103,30 @@ public class Minuta implements Serializable{
 
 	public String getDetalle() {
 		return detalle;
+	}
+
+
+
+	public String getBodega() {
+		return bodega;
+	}
+
+
+
+	public int getCantidad_plato() {
+		return cantidad_plato;
+	}
+
+
+
+	public void setCantidad_plato(int cantidad_plato) {
+		this.cantidad_plato = cantidad_plato;
+	}
+
+
+
+	public void setBodega(String bodega) {
+		this.bodega = bodega;
 	}
 
 

@@ -24,9 +24,7 @@ public class Movimiento_stock implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable = true)
-	private int cantidad_platos;
-	
+
 	@NotNull
 	private Date fecha;
 
@@ -91,14 +89,6 @@ public class Movimiento_stock implements Serializable {
 	}
 
 
-
-	public int getCantidad_platos() {
-		return cantidad_platos;
-	}
-
-	public void setCantidad_platos(int cantidad_platos) {
-		this.cantidad_platos = cantidad_platos;
-	}
 
 
 

@@ -109,6 +109,10 @@ INSERT INTO public.tipo(nombre)VALUES ('	QUESOS SEMI DUROS	');
 
 INSERT INTO public.bodega( nombre)	VALUES ( 'bodega1');
 INSERT INTO public.bodega(nombre)	VALUES ( 'bodega2');
+INSERT INTO public.bodega(nombre)	VALUES ( 'bodega3');
+INSERT INTO public.bodega(nombre)	VALUES ( 'bodega4');
+INSERT INTO public.bodega(nombre)	VALUES ( 'bodega5');
+INSERT INTO public.bodega(nombre)	VALUES ( 'bodega6');
 
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (1000,1000,8);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (2500,2600,9);
@@ -143,4 +147,9 @@ INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo
 
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 3, 2,1);
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 4, 2,1);
+
+INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,1)
+INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(2,2)
+INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(3,3)
+INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,4)
 
