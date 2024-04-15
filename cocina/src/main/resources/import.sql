@@ -114,12 +114,12 @@ INSERT INTO public.bodega(nombre)	VALUES ( 'bodega4');
 INSERT INTO public.bodega(nombre)	VALUES ( 'bodega5');
 INSERT INTO public.bodega(nombre)	VALUES ( 'bodega6');
 
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (1000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (1000,2000,8);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (2500,2600,9);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (3000,1000,3);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (200,1000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (900,500,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (5000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (900,5000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (5000,6000,8);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (8000,1000,8);
 INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (8000,1000,8);
 
@@ -152,4 +152,13 @@ INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,1)
 INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(2,2)
 INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(3,3)
 INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,4)
+
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(1,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(2,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(3,2)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(4,3)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(5,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(6,2)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(7,5)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(8,6)
 
