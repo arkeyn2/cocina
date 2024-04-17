@@ -39,6 +39,10 @@ public class MinutaService implements IMinutaService{
 		
 	}
 	
+	public List<Object> minutaBodega(String bodega) {
+		return minutaDao.minutaBodega(bodega);
+	}
+	
 	@Override
 	public List<Object> deleteminuta(String nombre , Date fecha) {
 		return minutaDao.deleteminuta(nombre, fecha );

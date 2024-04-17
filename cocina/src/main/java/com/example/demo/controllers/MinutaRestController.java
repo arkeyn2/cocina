@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import java.sql.Date;
+import java.text.ParseException;
 import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -146,4 +147,26 @@ public class MinutaRestController {
 
 		return new ResponseEntity <List<Object>>(reservahora, HttpStatus.OK);
 	}
+	
+	@GetMapping("/minutas/bodega/{bodega}")
+	public ResponseEntity<?> minutaBodega(@PathVariable String bodega)throws ParseException {
+
+		List<Object> accion = null;
+		Map<String, Object> response = new HashMap<>();
+
+		try {
+			accion = minutaService.minutaBodega(bodega);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (accion == null) {
+			response.put("mensaje", "La accion Id:".toString().concat(" no existe en la base de datos!"));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Object>>(accion, HttpStatus.OK);
+	}
+	
 }

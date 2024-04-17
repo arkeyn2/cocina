@@ -16,4 +16,6 @@ public interface IMinutaService {
 	public void delete(Long id);
 	
 	public List<Object> deleteminuta(String nombre,Date fecha);
+	
+	public List<Object> minutaBodega(String bodega);
 }
