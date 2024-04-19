@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.models.entity.Bodega;
 import com.example.demo.models.entity.Insumo;
+import com.example.demo.models.entity.Movimiento_stock;
 import com.example.demo.models.services.IInsumosService;
+import com.example.demo.models.services.IMovimiento_stockservice;
 
 @CrossOrigin(origins ={"http://loalhost:4200","*"})
 @RestController
@@ -29,6 +32,8 @@ public class InsumoController {
 
 	@Autowired
 	private IInsumosService insumoService;
+	@Autowired
+	private IMovimiento_stockservice imovstock ;
 	
 	@GetMapping("/insumos")
 	public List<Insumo>index(){
@@ -55,15 +60,20 @@ public class InsumoController {
 		return new ResponseEntity<Insumo>(insumos, HttpStatus.OK);
 	}
 	
+
 	@PostMapping("/insumos")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> create (@RequestBody Insumo insumos){
-	
+		Movimiento_stock socknew =null;
+		Movimiento_stock movstock = null;
 		Insumo insumosnew =null;
 		Map<String, Object> response = new HashMap<>();
+		//System.out.print("id " + insumos.getId()+" -");
 		
 		try {
+			
 			insumosnew = insumoService.save(insumos);
+			System.out.print("id " + insumosnew.getId()+" -");
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -71,6 +81,7 @@ public class InsumoController {
 		}
 		response.put("mensaje", "El insumo ha sido creado con exito!");
 		response.put("insumos", insumosnew);
+		System.out.print("id " + insumosnew.getId()+" -");
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
