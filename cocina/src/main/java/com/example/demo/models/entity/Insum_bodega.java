@@ -31,7 +31,7 @@ public class Insum_bodega implements Serializable{
 	@Column(nullable = false)
 	private int stock_critico;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "insumo_id")
 	private Insumo insumo;
 	
