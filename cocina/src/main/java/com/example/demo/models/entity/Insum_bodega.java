@@ -1,6 +1,7 @@
 package com.example.demo.models.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -31,14 +33,14 @@ public class Insum_bodega implements Serializable{
 	@Column(nullable = false)
 	private int stock_critico;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "insumo_id")
 	private Insumo insumo;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	private Bodega bodega;
 
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "bodega_id")
+	private Bodega bodega;
+	
 	public long getId() {
 		return id;
 	}
@@ -79,14 +81,10 @@ public class Insum_bodega implements Serializable{
 		this.insumo = insumo;
 	}
 
-	public Bodega getBodega() {
-		return bodega;
-	}
-
-	public void setBodega(Bodega bodega) {
-		this.bodega = bodega;
-	}
 	
+
+
+
 
 	/**
 	 * 

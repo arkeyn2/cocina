@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -30,11 +32,10 @@ import com.example.demo.models.services.IMovimiento_stockservice;
 @RequestMapping("/api")
 public class InsumoController {
 
-	public long variable; 
 	@Autowired
 	private IInsumosService insumoService;
-	@Autowired
-	private IMovimiento_stockservice imovstock ;
+	
+
 	
 	@GetMapping("/insumos")
 	public List<Insumo>index(){
@@ -65,38 +66,27 @@ public class InsumoController {
 	@PostMapping("/insumos")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> create (@RequestBody Insumo insumos){
-		Movimiento_stock socknew =null;
-		Movimiento_stock movstock = null;
-		Insumo insumosnew=null;
+		Insumo insumosnew =null;
 		Map<String, Object> response = new HashMap<>();
 		//System.out.print("id " + insumos.getId()+" -");
 		
 		try {
 			
 			insumosnew = insumoService.save(insumos);
-			System.out.print("id " + insumosnew.getId()+" -");
-			variable=insumosnew.getId();
+			
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar el insert en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El insumo ha sido creado con exito!");
+		//response.put("mensaje", insumosnew);
 		response.put("insumos", insumosnew);
-		response.put("insumos",insumosnew.getId());
-		System.out.print("id " + insumosnew.getId()+" -");
+		//System.out.print("id " + insumosnew.getBodega().getId()+" -");
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	
 
-	@GetMapping("/insumos/ultima/{id}")
-    public long ultimaId(
-            @PathVariable("id") long id) {
-				id= variable;
-  
-        return id;
-    }
-
+	
 	@PutMapping("/insumos/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<?> update(@RequestBody Insumo insumo, @PathVariable Long id) {
