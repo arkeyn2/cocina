@@ -71,8 +71,7 @@ public class Movimiento_stockController {
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El movimiento ha sido creado con exito!");
-		response.put("trago", socknew);
+		response.put("movstock", socknew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	

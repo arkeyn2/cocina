@@ -79,9 +79,9 @@ public class InsumoController {
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		//response.put("mensaje", insumosnew);
+		
 		response.put("insumos", insumosnew);
-		//System.out.print("id " + insumosnew.getBodega().getId()+" -");
+		
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
 	

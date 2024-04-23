@@ -37,10 +37,6 @@ public class Movimiento_stock implements Serializable {
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "stock_id")
 	private Stock stock;
-	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "insumo_id")
-	private Insumo insumo;
 
 	public Long getId() {
 		return id;
@@ -91,10 +87,6 @@ public class Movimiento_stock implements Serializable {
 	public void setStock(Stock stock) {
 		this.stock = stock;
 	}
-
-
-
-
 
 	private static final long serialVersionUID = 1L;
 

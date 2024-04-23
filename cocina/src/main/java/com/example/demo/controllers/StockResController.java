@@ -69,7 +69,6 @@ public class StockResController {
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		response.put("mensaje", "El stock ha sido creado con exito!");
 		response.put("stock", stocknew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
