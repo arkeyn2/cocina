@@ -2,7 +2,9 @@ package com.example.demo.controllers;
 
 import java.sql.Date;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -169,4 +171,25 @@ public class MinutaRestController {
 		return new ResponseEntity<List<Object>>(accion, HttpStatus.OK);
 	}
 	
+	
+	@GetMapping("/minutas/fecha/{fecha1}/{fecha2}")
+	public ResponseEntity<?> minutaFecha(@PathVariable Date fecha1,@PathVariable Date fecha2)throws ParseException {
+		
+		System.out.print(fecha1);
+		List<Object> accion = null;
+		Map<String, Object> response = new HashMap<>();
+		try {
+			accion = minutaService.minutaFecha(fecha1,fecha2);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (accion == null) {
+			response.put("mensaje", "La accion Id:".concat(fecha1.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Object>>(accion, HttpStatus.OK);
+	}
 }

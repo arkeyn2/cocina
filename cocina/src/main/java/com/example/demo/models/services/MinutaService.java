@@ -48,5 +48,11 @@ public class MinutaService implements IMinutaService{
 		return minutaDao.deleteminuta(nombre, fecha );
 		
 	}
+
+	@Override
+	public List<Object> minutaFecha(Date fecha1, Date fecha2) {
+		// TODO Auto-generated method stub
+		return minutaDao.minutaFecha(fecha1, fecha2);
+	}
 	
 }

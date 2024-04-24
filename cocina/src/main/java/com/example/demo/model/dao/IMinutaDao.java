@@ -20,4 +20,7 @@ public interface IMinutaDao extends CrudRepository<Minuta, Long>{
     @Query("select mi FROM Minuta mi where bodega = ?1")
     public List<Object> minutaBodega(String bodega);
 	
+	@Query("select mi from Minuta mi where mi.fecha Between ?1 and ?2")
+	public List<Object> minutaFecha(Date fecha1 ,Date fecha2);
+	
 }

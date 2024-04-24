@@ -18,4 +18,6 @@ public interface IMinutaService {
 	public List<Object> deleteminuta(String nombre,Date fecha);
 	
 	public List<Object> minutaBodega(String bodega);
+	
+	public List<Object> minutaFecha(Date fecha1 ,Date fecha2);
 }
