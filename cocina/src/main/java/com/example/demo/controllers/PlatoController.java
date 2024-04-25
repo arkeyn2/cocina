@@ -116,6 +116,7 @@ public class PlatoController {
 			platoActual.setCalorias(plato.getCalorias());
 			platoActual.setTipo(plato.getTipo());
 			platoActual.setMiseplace(plato.getMiseplace());
+			platoActual.setPreparacion(plato.getPreparacion());
 			
 			platoUpdate = platoser.save(platoActual);
 		}catch (DataAccessException e) {

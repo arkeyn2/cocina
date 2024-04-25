@@ -3,6 +3,7 @@ package com.example.demo.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,15 +35,15 @@ public class Preparacion implements Serializable {
 	private String estado;
 	
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Usuario usuario;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Insumo insumo;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	private Plato plato;
 	

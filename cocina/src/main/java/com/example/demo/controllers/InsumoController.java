@@ -112,8 +112,9 @@ public class InsumoController {
 			insumoActual.setEstado(insumo.getEstado());
 			insumoActual.setFecha_vencimiento(insumo.getFecha_vencimiento());
 			insumoActual.setTemperatura(insumo.getTemperatura());
-			
+			insumoActual.setBodega(insumo.getBodega());
 			insumoActual.setMovimiento_stock(insumo.getMovimiento_stock());
+			insumoActual.setTipo(insumo.getTipo());
 			
 			insumoUpdate = insumoService.save(insumoActual);
 			

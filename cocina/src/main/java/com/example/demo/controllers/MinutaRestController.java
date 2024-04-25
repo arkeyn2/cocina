@@ -104,6 +104,10 @@ public class MinutaRestController {
 			minutasActual.setHorario(minutas.getHorario());
 			minutasActual.setDetalle(minutas.getDetalle());
 			minutasActual.setFecha(minutas.getFecha());
+			minutasActual.setBodega(minutas.getBodega());
+			minutasActual.setCantidad_plato(minutas.getCantidad_plato());
+			minutasActual.setPlato(minutas.getPlato());
+			
 			minutasUpdate = minutaService.save(minutasActual);
 		}catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar actualizado en la base de datos");

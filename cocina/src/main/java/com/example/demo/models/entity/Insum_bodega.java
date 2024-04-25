@@ -86,6 +86,19 @@ public class Insum_bodega implements Serializable{
 
 
 
+	public Bodega getBodega() {
+		return bodega;
+	}
+
+	public void setBodega(Bodega bodega) {
+		this.bodega = bodega;
+	}
+
+
+
+
+
+
 	/**
 	 * 
 	 */

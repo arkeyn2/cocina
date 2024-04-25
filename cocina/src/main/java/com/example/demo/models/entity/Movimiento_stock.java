@@ -34,7 +34,7 @@ public class Movimiento_stock implements Serializable {
 	
 	private int Factura;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "stock_id")
 	private Stock stock;
 

@@ -114,33 +114,57 @@ INSERT INTO public.bodega(nombre)	VALUES ( 'bodega4');
 INSERT INTO public.bodega(nombre)	VALUES ( 'bodega5');
 INSERT INTO public.bodega(nombre)	VALUES ( 'bodega6');
 
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (1000,2000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (2500,2600,9);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (3000,1000,3);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (200,1000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (900,5000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (5000,6000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (8000,1000,8);
-INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (8000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,2000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,2600,9);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,3);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,5000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,6000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,2000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,2600,9);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,3);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,5000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,6000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
+INSERT INTO public.stock(cantidad,stock_critico,stock_inicial)VALUES (10000,1000,8);
 
-INSERT INTO public.movimiento_stock(factura, cantidad_platos,entrada,fecha, salida,stock_id)VALUES(3658963,2,1000,'05-03-2024',0,1);
-INSERT INTO public.movimiento_stock(factura,cantidad_platos ,entrada,fecha, salida,stock_id)VALUES(325698,0, 0,'05-03-2024',500,2);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'06-03-2024',600,3);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'07-03-2024',100,4);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'08-03-2024',200,5);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'09-03-2024',800,6);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',500,7);
-INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',500,8);
+INSERT INTO public.movimiento_stock(factura ,entrada,fecha, salida,stock_id)VALUES(365898, 0,'05-03-2024',0,1);
+INSERT INTO public.movimiento_stock(factura ,entrada,fecha, salida,stock_id)VALUES(325698, 0,'05-03-2024',0,2);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'06-03-2024',0,3);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'07-03-2024',0,4);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'08-03-2024',0,5);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'09-03-2024',0,6);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',0,7);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',0,8);
+INSERT INTO public.movimiento_stock(factura ,entrada,fecha, salida,stock_id)VALUES(365898, 0,'05-03-2024',0,9);
+INSERT INTO public.movimiento_stock(factura ,entrada,fecha, salida,stock_id)VALUES(325698, 0,'05-03-2024',0,10);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'06-03-2024',0,11);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'07-03-2024',0,12);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'08-03-2024',0,13);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'09-03-2024',0,14);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',0,15);
+INSERT INTO public.movimiento_stock(factura, entrada,fecha, salida,stock_id)VALUES(325698, 0,'03-03-2024',0,16);
 
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000855	','	ACETO BALSAMICO EDRA 500 CC	','	Unidad	','	SECO	','45000',3,	4);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514810	','	ACEITE MARAVILLA 5 L	','	Unidad	','	SECO	','45900',7,	3	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514820	','	ACEITE OLIVA OLITALIA 5 L	','	Unidad	','	SECO	','45900',4,	1	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104521630	','	ACEITE OLIVA 5 L	','	Unidad	','	SECO	','21000',1,	1);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104512230	','	ACEITE OLIVA E/VIRGEN OLITALIA 5 L	','	Unidad	','	SECO	','50000',2,	1);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000845	','	ACEITE OLIVA E/VIRGEN ZAYTA 5 L	','	Unidad	','	SECO	','45000',3,	1);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514880	','ACEITE SESAMO MAYAMOTO 500 ML','	Unidad	','	SECO	','45900',5,	2	);
-INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514840	','	ACEITE SPRAY 481 G','	Unidad	','	SECO	','45900',6,	2	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000855	','	ACETO BALSAMICO EDRA 500 CC	','	Unidad	','	SECO	','45000',1,	4);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514810	','	ACEITE MARAVILLA 5 L	','	Unidad	','	SECO	','45900',2,	3	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514820	','	ACEITE OLIVA OLITALIA 5 L	','	Unidad	','	SECO	','45900',3,	1	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104521630	','	ACEITE OLIVA 5 L	','	Unidad	','	SECO	','21000',4,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104512230	','	ACEITE OLIVA E/VIRGEN OLITALIA 5 L	','	Unidad	','	SECO	','50000',5,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000845	','	ACEITE OLIVA E/VIRGEN ZAYTA 5 L	','	Unidad	','	SECO	','45000',6,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514880	','ACEITE SESAMO MAYAMOTO 500 ML','	Unidad	','	SECO	','45900',7,	2	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514840	','	ACEITE SPRAY 481 G','	Unidad	','	SECO	','45900',8,	2	);
 
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000855	','	ACETO BALSAMICO EDRA 500 CC	','	Unidad	','	SECO	','45000',9,	4);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514810	','	ACEITE MARAVILLA 5 L	','	Unidad	','	SECO	','45900',10,	3	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514820	','	ACEITE OLIVA OLITALIA 5 L	','	Unidad	','	SECO	','45900',11,	1	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104521630	','	ACEITE OLIVA 5 L	','	Unidad	','	SECO	','21000',12,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104512230	','	ACEITE OLIVA E/VIRGEN OLITALIA 5 L	','	Unidad	','	SECO	','50000',13,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	150000845	','	ACEITE OLIVA E/VIRGEN ZAYTA 5 L	','	Unidad	','	SECO	','45000',14,	1);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514880	','ACEITE SESAMO MAYAMOTO 500 ML','	Unidad	','	SECO	','45900',15,	2	);
+INSERT INTO public.insumo(codigo,descripcion,descripcion_umv,temperatura,precio_unidad,movimiento_stock_id,tipo_id)VALUES ('	104514840	','	ACEITE SPRAY 481 G','	Unidad	','	SECO	','45900',16,	2	);
 
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 20, 1, 1,1);
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 2, 1,1);
@@ -155,12 +179,21 @@ INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,4)
 
 INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(1,1)
 INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(2,1)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(3,2)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(4,3)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(5,4)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(6,2)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(7,5)
-INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(8,6)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(3,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(4,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(5,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(6,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(7,1)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(8,1)
+
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(9,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(10,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(11,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(12,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(13,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(14,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(15,4)
+INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(16,4)
 
 INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',2,'2024-04-17','ARROZ CON LECHE',1);
 INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',3,'2024-04-16','ARROZ CON LECHE',1);
