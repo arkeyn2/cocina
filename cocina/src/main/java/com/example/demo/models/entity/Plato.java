@@ -39,6 +39,8 @@ public class Plato implements Serializable {
 	private String tipo;
 	@Column(length = 1000)
 	
+	private String nombrebodega;
+	
 	private int calorias;
 	private String miseplace;
 	
@@ -49,6 +51,17 @@ public class Plato implements Serializable {
 
 	public String getTipo() {
 		return tipo;
+	}
+
+
+
+	public String getNombrebodega() {
+		return nombrebodega;
+	}
+
+
+	public void setNombrebodega(String nombrebodega) {
+		this.nombrebodega = nombrebodega;
 	}
 
 

@@ -117,6 +117,7 @@ public class PlatoController {
 			platoActual.setTipo(plato.getTipo());
 			platoActual.setMiseplace(plato.getMiseplace());
 			platoActual.setPreparacion(plato.getPreparacion());
+			platoActual.setNombrebodega(plato.getNombrebodega());
 			
 			platoUpdate = platoser.save(platoActual);
 		}catch (DataAccessException e) {
