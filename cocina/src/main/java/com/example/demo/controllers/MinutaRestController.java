@@ -176,14 +176,14 @@ public class MinutaRestController {
 	}
 	
 	
-	@GetMapping("/minutas/fecha/{fecha1}/{fecha2}")
-	public ResponseEntity<?> minutaFecha(@PathVariable Date fecha1,@PathVariable Date fecha2)throws ParseException {
+	@GetMapping("/minutas/fecha/{fecha1}/{fecha2}/{bodega}")
+	public ResponseEntity<?> minutaFecha(@PathVariable Date fecha1,@PathVariable Date fecha2,@PathVariable String bodega)throws ParseException {
 		
 		System.out.print(fecha1);
 		List<Object> accion = null;
 		Map<String, Object> response = new HashMap<>();
 		try {
-			accion = minutaService.minutaFecha(fecha1,fecha2);
+			accion = minutaService.minutaFecha(fecha1,fecha2,bodega);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));

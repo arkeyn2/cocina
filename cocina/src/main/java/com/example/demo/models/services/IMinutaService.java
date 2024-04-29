@@ -19,5 +19,5 @@ public interface IMinutaService {
 	
 	public List<Object> minutaBodega(String bodega);
 	
-	public List<Object> minutaFecha(Date fecha1 ,Date fecha2);
+	public List<Object> minutaFecha(Date fecha1 ,Date fecha2,String bodega);
 }

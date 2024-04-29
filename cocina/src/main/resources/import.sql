@@ -199,8 +199,8 @@ INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(14,4)
 INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(15,4)
 INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(16,4)
 INSERT INTO public.insumo_bodega(insumo_id, bodiga_id)VALUES(17,2)
-INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',2,'2024-04-17','ARROZ CON LECHE',1);
-INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',3,'2024-04-16','ARROZ CON LECHE',1);
-INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega2',2,'2024-04-15','ARROZ CON LECHE',1);
-INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega3',4,'2024-04-14','ARROZ CON LECHE',1);
-INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega4',3,'2024-04-16','ARROZ CON LECHE',1);
+INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',2,'2024-04-29','ARROZ CON LECHE',1);
+INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega1',3,'2024-04-30','ARROZ CON LECHE',1);
+INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega2',2,'2024-05-01','ARROZ CON LECHE',1);
+INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega3',4,'2024-05-01','ARROZ CON LECHE',1);
+INSERT INTO public.minuta(bodega, cantidad_plato, fecha, nombre, plato_id)VALUES('bodega4',3,'2024-05-03','ARROZ CON LECHE',1);

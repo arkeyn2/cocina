@@ -50,9 +50,9 @@ public class MinutaService implements IMinutaService{
 	}
 
 	@Override
-	public List<Object> minutaFecha(Date fecha1, Date fecha2) {
+	public List<Object> minutaFecha(Date fecha1, Date fecha2,String bodega) {
 		// TODO Auto-generated method stub
-		return minutaDao.minutaFecha(fecha1, fecha2);
+		return minutaDao.minutaFecha(fecha1, fecha2,bodega);
 	}
 	
 }
