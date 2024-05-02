@@ -196,4 +196,26 @@ public class MinutaRestController {
 		}
 		return new ResponseEntity<List<Object>>(accion, HttpStatus.OK);
 	}
+	
+	@GetMapping("/minutas/fechaij/{fecha1}/{fecha2}/{bodega}")
+	public ResponseEntity<?> minutaFechaIJ(@PathVariable Date fecha1,@PathVariable Date fecha2,@PathVariable String bodega)throws ParseException {
+		
+		System.out.print(fecha1);
+		List<Object> accion = null;
+		Map<String, Object> response = new HashMap<>();
+		try {
+			accion = minutaService.minutaFechaIJ(fecha1,fecha2,bodega);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta en la base de datos");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+
+		if (accion == null) {
+			response.put("mensaje", "La accion Id:".concat(fecha1.toString().concat(" no existe en la base de datos!")));
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Object>>(accion, HttpStatus.OK);
+	}
+	
 }
