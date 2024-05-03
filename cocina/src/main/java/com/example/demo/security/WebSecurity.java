@@ -63,6 +63,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/uploads/**").permitAll()
                 .antMatchers("/img/**").permitAll()
                 .antMatchers("/minutas/delete/**").permitAll()
+                .antMatchers("/api/platos/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)

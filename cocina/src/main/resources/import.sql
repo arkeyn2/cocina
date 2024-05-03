@@ -175,6 +175,8 @@ INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo
 
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 3, 2,1);
 INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',200, 10, 4, 2,1);
+INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',100, 10, 6, 4,1);
+INSERT INTO public.preparacion(fecha,stock_necesario, tiempo_preparacion, insumo_id, plato_id, usuario_id)	VALUES ('2024-03-12',100, 10, 7, 4,1);
 
 INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(1,1)
 INSERT INTO public.usuario_bodega(usuario_id, bodiga_id)VALUES(2,2)
