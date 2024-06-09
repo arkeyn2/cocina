@@ -33,7 +33,7 @@ import java.util.Set;
 import javax.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","*"})
 @RequestMapping("/api/auth")
 public class AuthController {
 
